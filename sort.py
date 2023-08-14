@@ -1,6 +1,7 @@
 import os
 import sys
 import shutil
+from pathlib import Path
 
 
 def normalize(input_str):
@@ -101,7 +102,7 @@ def sort_folder(folder_path):
     return known_extensions, unknown_extensions
 
 
-if __name__ == "__main__":
+def some_function(path):
     if len(sys.argv) != 2:
         print("Usage: python sort.py <folder_path>")
     else:
@@ -110,3 +111,8 @@ if __name__ == "__main__":
 
         print("Known extensions:", known_extensions)
         print("Unknown extensions:", unknown_extensions)
+
+
+if __name__ == "__main__":
+    perent_folder_path = Path("Temp")
+    some_function(perent_folder_path)
