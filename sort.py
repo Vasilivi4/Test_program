@@ -4,20 +4,20 @@ import shutil
 
 
 def normalize(input_str):
-    translit_dict = {
+    translit_table = {
         "а": "a",
         "б": "b",
         "в": "v",
-        "г": "g",
+        "г": "h",
         "д": "d",
         "е": "e",
-        "є": "ye",
+        "є": "ie",
         "ж": "zh",
         "з": "z",
-        "и": "i",
+        "и": "y",
         "і": "i",
-        "ї": "yi",
-        "й": "y",
+        "ї": "i",
+        "й": "i",
         "к": "k",
         "л": "l",
         "м": "m",
@@ -35,48 +35,17 @@ def normalize(input_str):
         "ш": "sh",
         "щ": "shch",
         "ь": "",
-        "ю": "yu",
-        "я": "ya",
-        "А": "A",
-        "Б": "B",
-        "В": "V",
-        "Г": "G",
-        "Д": "D",
-        "Е": "E",
-        "Є": "Ye",
-        "Ж": "Zh",
-        "З": "Z",
-        "И": "I",
-        "І": "I",
-        "Ї": "Yi",
-        "Й": "Y",
-        "К": "K",
-        "Л": "L",
-        "М": "M",
-        "Н": "N",
-        "О": "O",
-        "П": "P",
-        "Р": "R",
-        "С": "S",
-        "Т": "T",
-        "У": "U",
-        "Ф": "F",
-        "Х": "Kh",
-        "Ц": "Ts",
-        "Ч": "Ch",
-        "Ш": "Sh",
-        "Щ": "Shch",
-        "Ь": "",
-        "Ю": "Yu",
-        "Я": "Ya",
+        "ю": "iu",
+        "я": "ia",
     }
 
     normalized_str = ""
     for char in input_str:
-        if char.isalpha() and char in translit_dict:
-            normalized_str += translit_dict[char]
-        elif char.isalnum():
-            normalized_str += char
+        if char.isalnum() or char in [".", " "]:
+            if char in translit_table:
+                normalized_str += translit_table[char]
+            else:
+                normalized_str += char
         else:
             normalized_str += "_"
 
