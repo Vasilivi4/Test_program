@@ -102,7 +102,7 @@ def sort_folder(folder_path):
     return known_extensions, unknown_extensions
 
 
-def some_function(path):
+def get_function():
     if len(sys.argv) != 2:
         print("Usage: python sort.py <folder_path>")
     else:
@@ -114,5 +114,4 @@ def some_function(path):
 
 
 if __name__ == "__main__":
-    perent_folder_path = Path("Temp")
-    some_function(perent_folder_path)
+    get_function()
